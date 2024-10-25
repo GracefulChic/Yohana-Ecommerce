@@ -13,7 +13,7 @@
             background-color: #f8f8f8;
         }
         header {
-            background: #ff6f91; /* Pink background */
+            background: #ff6f91;
             color: white;
             padding: 20px;
             text-align: center;
@@ -27,7 +27,7 @@
             text-decoration: none;
         }
         .hero {
-            background: url('images/DSC_0888.JPG') no-repeat center center/cover;
+            background: url('your-hero-image.jpg') no-repeat center center/cover;
             height: 400px;
             display: flex;
             align-items: center;
@@ -60,8 +60,24 @@
         .product h3 {
             margin: 10px 0;
         }
+        .contact {
+            padding: 20px;
+            text-align: center;
+        }
+        .contact form {
+            margin: 20px auto;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+        }
+        .contact input, .contact textarea {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
         .footer {
-            background: #ff6f91; /* Pink background */
+            background: #ff6f91;
             color: white;
             text-align: center;
             padding: 20px;
@@ -79,7 +95,7 @@
         <a href="#">Home</a>
         <a href="#">Shop</a>
         <a href="#">About</a>
-        <a href="#">Contact</a>
+        <a href="#contact">Contact</a>
     </nav>
 </header>
 
@@ -89,7 +105,7 @@
 
 <div class="products">
     <div class="product">
-        <img src="product1-image.jpg" alt="Product 1">
+        <img src="images/DSC_0888.JPG" alt="Product 1">
         <h3>Product 1</h3>
         <p>$29.99</p>
     </div>
@@ -103,6 +119,21 @@
         <h3>Product 3</h3>
         <p>$49.99</p>
     </div>
+</div>
+
+<div class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <p><strong>Email:</strong> contact@Yohana-boutique.com</p>
+    <p><strong>Phone:</strong> (123) 456-7890</p>
+    <p><strong>Address:</strong> 123 Fashion St, Style City, ST 12345</p>
+
+    <h3>Send Us a Message</h3>
+    <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="4" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
 </div>
 
 <footer class="footer">
