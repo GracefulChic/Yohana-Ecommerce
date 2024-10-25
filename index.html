@@ -26,9 +26,17 @@
             margin: 0 15px;
             text-decoration: none;
         }
+        .cart-icon {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
         .hero {
             background: url('images/HUMAN HAIR4.png') no-repeat center center/cover;
-            height: 200px;
+            height: 400px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -51,8 +59,8 @@
             margin: 10px;
             width: 30%;
             text-align: center;
-            text-decoration: none; /* Remove underline from links */
-            color: inherit; /* Inherit text color */
+            text-decoration: none;
+            color: inherit;
         }
         .product img {
             max-width: 100%;
@@ -62,11 +70,7 @@
         .product h3 {
             margin: 10px 0;
         }
-        .about {
-            padding: 20px;
-            text-align: center;
-        }
-        .contact {
+        .about, .contact {
             padding: 20px;
             text-align: center;
         }
@@ -91,6 +95,35 @@
             bottom: 0;
             width: 100%;
         }
+        /* Cart overlay styles */
+        .cart-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .cart-content {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+            text-align: left;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+        .close-cart {
+            cursor: pointer;
+            color: #ff6f91;
+        }
     </style>
 </head>
 <body>
@@ -103,6 +136,9 @@
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
     </nav>
+    <div class="cart-icon" onclick="toggleCart()">
+        <i class="fas fa-shopping-cart"></i> <span id="cart-count">0</span>
+    </div>
 </header>
 
 <div class="hero">
@@ -110,17 +146,17 @@
 </div>
 
 <div class="products">
-    <a class="product" href="images/HUMAN HAIR1.png">
+    <a class="product" href="#" onclick="addToCart('Product 1', 29.99)">
         <img src="images/HUMAN HAIR1.png" alt="Product 1">
         <h3>Product 1</h3>
         <p>$29.99</p>
     </a>
-    <a class="product" href="images/HUMAN HAIR2.png">
+    <a class="product" href="#" onclick="addToCart('Product 2', 39.99)">
         <img src="images/HUMAN HAIR2.png" alt="Product 2">
         <h3>Product 2</h3>
         <p>$39.99</p>
     </a>
-    <a class="product" href="images/HUMAN HAIR3.png">
+    <a class="product" href="#" onclick="addToCart('Product 3', 49.99)">
         <img src="images/HUMAN HAIR3.png" alt="Product 3">
         <h3>Product 3</h3>
         <p>$49.99</p>
@@ -149,9 +185,7 @@
     </form>
 </div>
 
-<footer class="footer">
-    <p>&copy; 2024 Yohana Boutique. All Rights Reserved.</p>
-</footer>
-
-</body>
-</html>
+<div class="cart-overlay" id="cart-overlay">
+    <div class="cart-content">
+        <h3>Your Cart</h3>
+        <div id="cart-items"></
