@@ -17,6 +17,7 @@
             color: white;
             padding: 20px;
             text-align: center;
+            position: relative;
         }
         nav {
             margin: 20px 0;
@@ -146,17 +147,17 @@
 </div>
 
 <div class="products">
-    <a class="product" href="#" onclick="addToCart('Product 1', 29.99)">
+    <a class="product" href="images/HUMAN HAIR1.png" onclick="addToCart('Product 1', 29.99); return false;">
         <img src="images/HUMAN HAIR1.png" alt="Product 1">
         <h3>Product 1</h3>
         <p>$29.99</p>
     </a>
-    <a class="product" href="#" onclick="addToCart('Product 2', 39.99)">
+    <a class="product" href="images/HUMAN HAIR2.png" onclick="addToCart('Product 2', 39.99); return false;">
         <img src="images/HUMAN HAIR2.png" alt="Product 2">
         <h3>Product 2</h3>
         <p>$39.99</p>
     </a>
-    <a class="product" href="#" onclick="addToCart('Product 3', 49.99)">
+    <a class="product" href="images/HUMAN HAIR3.png" onclick="addToCart('Product 3', 49.99); return false;">
         <img src="images/HUMAN HAIR3.png" alt="Product 3">
         <h3>Product 3</h3>
         <p>$49.99</p>
@@ -188,4 +189,41 @@
 <div class="cart-overlay" id="cart-overlay">
     <div class="cart-content">
         <h3>Your Cart</h3>
-        <div id="cart-items"></
+        <div id="cart-items"></div>
+        <button class="close-cart" onclick="toggleCart()">Close</button>
+    </div>
+</div>
+
+<footer class="footer">
+    <p>&copy; 2024 Yohana Boutique. All Rights Reserved.</p>
+</footer>
+
+<script>
+    let cart = [];
+    
+    function addToCart(productName, productPrice) {
+        cart.push({ name: productName, price: productPrice });
+        document.getElementById('cart-count').innerText = cart.length;
+        alert(`${productName} has been added to your cart.`);
+    }
+
+    function toggleCart() {
+        const overlay = document.getElementById('cart-overlay');
+        overlay.style.display = overlay.style.display === 'flex' ? 'none' : 'flex';
+        displayCartItems();
+    }
+
+    function displayCartItems() {
+        const cartItemsContainer = document.getElementById('cart-items');
+        cartItemsContainer.innerHTML = '';
+        cart.forEach(item => {
+            const itemElement = document.createElement('div');
+            itemElement.className = 'cart-item';
+            itemElement.innerText = `${item.name} - $${item.price.toFixed(2)}`;
+            cartItemsContainer.appendChild(itemElement);
+        });
+    }
+</script>
+
+</body>
+</html>
